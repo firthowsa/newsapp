@@ -52,7 +52,7 @@ class _NewsApiService implements NewsApiService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = BreakingNewsResponse.fromJson(_result.data!);
+    final value = BreakingNewsResponse.fromMap(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
