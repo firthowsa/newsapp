@@ -1,31 +1,26 @@
-// import 'package:auto_route/auto_route.dart';
-// import 'package:json_annotation/json_annotation.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/src/presentation/views/article_details_view.dart';
+import 'package:news_app/src/presentation/views/saved_articles_view.dart';
 
-// import '../../../main.dart';
+import '../../presentation/views/breaking_news_view.dart';
 
-// part 'app_router.gr.dart';            
-              
-// @AutoRouterConfig()      
-// class AppRouter extends _$AppRouter {      
-    
-//   @override      
-//   final List<AutoRoute> routes = [      
-//    /// routes go here     
-//    ] ;   
-//  }
- 
-//  class _$AppRouter {
-//  }
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const BreakingNewsView();
+      },
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'SavedArticlesView',
+          builder: (BuildContext context, GoRouterState state) {
+            return const SavedArticlesView();
+          },
+        ),
+      ],
+    ),
+  ],
+);
 
-// // final GoRouter _router = GoRouter(
-// //   routes: [
-// //     GoRoute(
-// //       path: "/",
-// //       builder: (context, state) =>  MyApp(),
-// //     ),
-// //     // GoRoute(
-// //     //   path: "/settings",
-// //     //   builder: (context, state) => const SettingsPage(),
-// //     // )
-// //   ],
-// // );

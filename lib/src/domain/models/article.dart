@@ -8,6 +8,7 @@ import 'source.dart';
 class Article extends Equatable {
   @PrimaryKey(autoGenerate: true)
   final int? id;
+  
   final Source? source;
   final String? author;
   final String? title;
