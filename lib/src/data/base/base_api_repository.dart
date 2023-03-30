@@ -7,6 +7,14 @@ import 'package:meta/meta.dart';
 import 'package:news_app/src/utils/resources/data_state.dart';
 
 abstract class BaseApiRepository {
+  /// This method is responsible of handling the given `request`, in which
+  /// it returns generic based `DataState`.
+  ///
+  /// Returns `DataSuccess` that holds the generic data `T` if the response
+  /// is successfully recieved.
+  ///
+  /// Returns `DataFailed` that holds a `DioError` instance if any error occurs
+  /// while sending the request or recieving the response.
   @protected
   Future<DataState<T>> getStateOf<T>({
     required Future<HttpResponse<T>> Function() request,
@@ -14,12 +22,11 @@ abstract class BaseApiRepository {
     try {
       final httpResponse = await request();
       if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.response.data);
+        return DataSuccess(httpResponse.data);
       } else {
         throw DioError(
           response: httpResponse.response,
           requestOptions: httpResponse.response.requestOptions,
-          
         );
       }
     } on DioError catch (error) {

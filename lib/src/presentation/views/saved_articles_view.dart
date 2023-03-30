@@ -7,7 +7,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:news_app/src/presentation/cubits/local_articles/cubit/local_articles_cubit.dart';
 import 'package:news_app/src/presentation/views/article_details_view.dart';
 
-import '../../config/router/app_router.dart';
 import '../../domain/models/article.dart';
 import '../widgets/article_widget.dart';
 

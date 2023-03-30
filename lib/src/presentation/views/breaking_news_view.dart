@@ -33,12 +33,12 @@ class BreakingNewsView extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Daily News',
+          'Tech News',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
           GestureDetector(
-            onTap: () => context.go(SavedArticlesView() as String),
+            onTap: () => context.go(const SavedArticlesView() as String),
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 14),
               child: Icon(Ionicons.bookmark, color: Colors.black),

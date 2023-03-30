@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/src/presentation/views/article_details_view.dart';
 import 'package:news_app/src/presentation/views/saved_articles_view.dart';
 
 import '../../presentation/views/breaking_news_view.dart';

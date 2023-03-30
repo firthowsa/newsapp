@@ -8,7 +8,6 @@ import 'package:news_app/src/presentation/views/breaking_news_view.dart';
 import 'package:news_app/src/presentation/views/saved_articles_view.dart';
 import 'package:oktoast/oktoast.dart';
 
-import 'src/config/router/app_router.dart';
 
 import 'src/domain/repository/api_repository.dart';
 import 'src/domain/repository/database_repository.dart';
@@ -19,7 +18,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDependencies();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 
@@ -43,6 +42,8 @@ final GoRouter _router = GoRouter(
 );
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
