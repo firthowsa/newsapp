@@ -5,15 +5,15 @@ import 'package:news_app/src/presentation/views/saved_articles_view.dart';
 import '../../presentation/views/breaking_news_view.dart';
 
 final GoRouter _router = GoRouter(
-  routes: <RouteBase>[
+  routes: [
     GoRoute(
       path: '/',
-      builder: (BuildContext context, GoRouterState state) {
+      builder: (context,state) {
         return const BreakingNewsView();
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'SavedArticlesView',
+          path: '/SavedArticlesView',
           builder: (BuildContext context, GoRouterState state) {
             return const SavedArticlesView();
           },

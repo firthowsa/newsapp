@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/src/config/themes/app_themes.dart';
+import 'package:news_app/src/domain/models/article.dart';
 import 'package:news_app/src/presentation/cubits/local_articles/cubit/local_articles_cubit.dart';
 import 'package:news_app/src/presentation/cubits/remote_articles/cubit/remote_articles_cubit.dart';
+import 'package:news_app/src/presentation/views/article_details_view.dart';
 import 'package:news_app/src/presentation/views/breaking_news_view.dart';
 import 'package:news_app/src/presentation/views/saved_articles_view.dart';
 import 'package:oktoast/oktoast.dart';
@@ -21,7 +23,6 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
@@ -36,6 +37,12 @@ final GoRouter _router = GoRouter(
             return const SavedArticlesView();
           },
         ),
+
+        GoRoute(
+          path: 'ArticleDetailsView',
+          builder:(BuildContext context, GoRouterState state) => ArticleDetailsView(article: state.extra as Article)
+
+),
       ],
     ),
   ],

@@ -38,7 +38,7 @@ class BreakingNewsView extends HookWidget {
         ),
         actions: [
           GestureDetector(
-            onTap: () => context.go(const SavedArticlesView() as String),
+            onTap: () => context.go('/SavedArticlesView'),
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 14),
               child: Icon(Ionicons.bookmark, color: Colors.black),
@@ -79,9 +79,7 @@ class BreakingNewsView extends HookWidget {
           delegate: SliverChildBuilderDelegate(
             (context, index) => ArticleWidget(
               article: articles[index],
-              onArticlePressed: (e) => context.go(
-                ArticleDetailsView(article: e) as String,
-              ),
+              onArticlePressed: (e) => context.go('/ArticleDetailsView', extra:  e)
             ),
             childCount: articles.length,
           ),
