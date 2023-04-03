@@ -59,9 +59,7 @@ class SavedArticlesView extends HookWidget {
           isRemovable: true,
           onRemove: (article) => BlocProvider.of<LocalArticlesCubit>(context)
               .removeArticle(article: article),
-          onArticlePressed: (article) => context.go(
-            ArticleDetailsView(article: article) as String,
-          ),
+          onArticlePressed: (article) => context.go('/ArticleDetailsView', extra:  article),
         );
       },
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/src/config/router/app_router.dart';
 import 'package:news_app/src/config/themes/app_themes.dart';
 import 'package:news_app/src/domain/models/article.dart';
 import 'package:news_app/src/presentation/cubits/local_articles/cubit/local_articles_cubit.dart';
@@ -23,30 +24,30 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-final GoRouter _router = GoRouter(
-  routes: <RouteBase>[
-    GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return const BreakingNewsView();
-      },
-      routes: <RouteBase>[
-        GoRoute(
-          path: 'SavedArticlesView',
-          builder: (BuildContext context, GoRouterState state) {
-            return const SavedArticlesView();
-          },
-        ),
-
-        GoRoute(
-          path: 'ArticleDetailsView',
-          builder:(BuildContext context, GoRouterState state) => ArticleDetailsView(article: state.extra as Article)
-
-),
-      ],
-    ),
-  ],
-);
+// final GoRouter _router = GoRouter(
+//   routes: <RouteBase>[
+//     GoRoute(
+//       path: '/',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const BreakingNewsView();
+//       },
+//       routes: <RouteBase>[
+//         GoRoute(
+//           path: 'SavedArticlesView',
+//           builder: (BuildContext context, GoRouterState state) {
+//             return const SavedArticlesView();
+//           },
+//         ),
+//
+//         GoRoute(
+//           path: 'ArticleDetailsView',
+//           builder:(BuildContext context, GoRouterState state) => ArticleDetailsView(article: state.extra as Article)
+//
+// ),
+//       ],
+//     ),
+//   ],
+// );
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
     child:  OKToast(
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          routerConfig: _router,
+          routerConfig: router,
             // routeInformationProvider: _router.routeInformationProvider,
             // routeInformationParser: _router.routeInformationParser,
             // routerDelegate: _router.routerDelegate,

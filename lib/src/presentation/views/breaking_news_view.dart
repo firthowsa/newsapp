@@ -33,7 +33,7 @@ class BreakingNewsView extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Tech News',
+          ' News',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
